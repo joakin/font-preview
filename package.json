@@ -1,0 +1,24 @@
+{
+  "name": "font-compare",
+  "version": "0.0.0",
+  "description": "Font comparer (focused on monospaced fonts)",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify browser.js -o static/bundle.js",
+    "watch": "watchify browser.js -o static/bundle.js --debug --verbose",
+    "test": "node test/**/*.js"
+  },
+  "author": "Joaquin Oltra",
+  "license": "MIT",
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
+  "dependencies": {
+    "react": "^0.10.0"
+  },
+  "devDependencies": {
+    "reactify": "^0.13.1"
+  }
+}
