@@ -6,19 +6,23 @@
   "scripts": {
     "build": "browserify browser.js -o static/bundle.js",
     "watch": "watchify browser.js -o static/bundle.js --debug --verbose",
-    "test": "node test/**/*.js"
+    "test": "node test/*.js"
   },
   "author": "Joaquin Oltra",
   "license": "MIT",
   "browserify": {
     "transform": [
-      "reactify"
+      "reactify",
+      "brfs"
     ]
   },
   "dependencies": {
-    "react": "^0.10.0"
+    "react": "^0.10.0",
+    "css-face-string": "*"
   },
   "devDependencies": {
-    "reactify": "^0.13.1"
+    "brfs": "^1.1.1",
+    "reactify": "^0.13.1",
+    "tape": "^2.13.2"
   }
 }

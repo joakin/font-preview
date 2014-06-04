@@ -1,15 +1,8 @@
 
 var React = require('react')
-  , Title = require('./title.jsx')
-  , FontList = require('./font-list.jsx')
-
-var fonts = [{
-  name: 'Inconsolata',
-  path: 'inconsolata.ttf'
-}, {
-  name: 'Consolas',
-  path: 'consolas.otf'
-}]
+var Title = require('./title.jsx')
+var FontList = require('./font-list.jsx')
+var FontPreview = require('./font-preview.jsx')
 
 module.exports = React.createClass({
 
@@ -17,7 +10,8 @@ module.exports = React.createClass({
     return (
       <div>
         <Title>Font comparer</Title>
-        <FontList fonts={fonts} />
+        <FontList fonts={this.props.fonts} />
+        <FontPreview text={this.props.text} />
       </div>
     )
   }

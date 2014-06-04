@@ -1,0 +1,14 @@
+
+console.log('I\'m in the browser!')
+
+var fs = require('fs')
+  , React = require('react')
+  , App = require('./browser/ui/app.jsx')
+  , fonts = require('./fonts.json')
+
+var sampleText = fs.readFileSync('./static/samples.txt')
+
+React.renderComponent(
+  App({ fonts: fonts }),
+  document.body
+);

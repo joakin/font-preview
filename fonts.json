@@ -1,0 +1,9 @@
+[{
+  "type": "FILE",
+  "name": "Inconsolata",
+  "files": [{ "url": "fonts/Inconsolata.otf", "format": "truetype" }]
+}, {
+  "type": "FILE",
+  "name": "Envy Code R",
+  "files": [{ "url": "fonts/Envy Code R.ttf", "format": "truetype" }]
+}]
