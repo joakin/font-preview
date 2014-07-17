@@ -4,9 +4,16 @@
   "description": "Font comparer (focused on monospaced fonts)",
   "main": "index.js",
   "scripts": {
-    "build": "browserify browser.js -o static/bundle.js",
-    "watch": "watchify browser.js -o static/bundle.js --debug --verbose",
+    "build-js": "browserify browser.js -o static/bundle.js",
+    "build-css": "stylus -c styles/style.styl -o static/",
+    "build": "npm run build-js & npm run build-css",
+    "watch-js": "watchify browser.js -o static/bundle.js --debug --verbose",
+    "watch-css": "stylus -w styles/style.styl -o static/",
+    "watch": "npm run watch-js & npm run watch-css & npm-watch",
     "test": "node test/*.js"
+  },
+  "watch": {
+    "test": "{static,test}/*.js"
   },
   "author": "Joaquin Oltra",
   "license": "MIT",
@@ -22,6 +29,7 @@
   },
   "devDependencies": {
     "brfs": "^1.1.1",
+    "npm-watch": "0.0.0",
     "reactify": "^0.13.1",
     "tape": "^2.13.2"
   }
