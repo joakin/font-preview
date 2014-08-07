@@ -4,7 +4,7 @@
   "description": "Font comparer (focused on monospaced fonts)",
   "main": "index.js",
   "scripts": {
-    "serve": "./node_modules/.bin/livereloadx -s ./static/",
+    "serve": "./node_modules/.bin/livereloadx -s ./static/ 1> /dev/null",
     "build-js": "browserify browser.js -o static/bundle.js",
     "build-css": "stylus -c styles/style.styl -o static/",
     "build": "npm run build-js & npm run build-css",
