@@ -3,36 +3,45 @@
   "version": "0.0.0",
   "description": "Font comparer (focused on monospaced fonts)",
   "main": "index.js",
-  "scripts": {
-    "serve": "./node_modules/.bin/livereloadx -s ./static/ 1> /dev/null",
-    "build-js": "browserify browser.js -o static/bundle.js",
-    "build-css": "stylus -c styles/style.styl -o static/",
-    "build": "npm run build-js & npm run build-css",
-    "watch-js": "watchify browser.js -o static/bundle.js --debug --verbose",
-    "watch-css": "stylus -w styles/style.styl -o static/",
-    "watch": "npm run watch-js & npm run watch-css & npm-watch & npm run serve",
-    "test": "node test/*.js"
-  },
-  "watch": {
-    "test": "{static,test}/*.js"
-  },
   "author": "Joaquin Oltra",
   "license": "MIT",
   "browserify": {
     "transform": [
-      [ "reactify", { "extension": "js", "es6": true } ],
+      [
+        "reactify",
+        {
+          "extension": "js",
+          "es6": true
+        }
+      ],
       "brfs"
     ]
   },
   "dependencies": {
+    "css-face-string": "*",
     "react": "0.11",
-    "css-face-string": "*"
+    "react-router": "^0.5.2"
   },
   "devDependencies": {
-    "livereloadx": "^0.3.5",
     "brfs": "^1.1.1",
+    "livereloadx": "^0.3.5",
     "npm-watch": "*",
     "reactify": "^0.14",
-    "tape": "^2.13.2"
+    "tape": "^2.13.2",
+    "wr": "^1.3.1"
+  },
+  "scripts": {
+    "serve": "./node_modules/.bin/pushserve -P static/",
+    "livereload": "./node_modules/.bin/livereloadx -y http://localhost:8000 static/",
+    "build-js": "browserify browser.js -o static/bundle.js",
+    "watch-js": "watchify browser.js -o static/bundle.js --debug --verbose",
+    "build-css": "stylus -c styles/style.styl -o static/",
+    "watch-css": "stylus -w styles/style.styl -o static/",
+    "build": "npm run build-js & npm run build-css",
+    "watch": "npm run watch-js & npm run watch-css & npm run serve & npm run livereload",
+    "test": "node test/*.js"
+  },
+  "//watch": {
+    "test": "{static,test}/*.js"
   }
 }
