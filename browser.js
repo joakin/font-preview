@@ -13,6 +13,11 @@ var fonts = require('./fonts.json');
 
 var sampleText = fs.readFileSync(__dirname + '/static/sample.txt', 'utf8');
 
+/*
+[1, 2, 3].forEach((x) => console.log(x));
+var [a, b] = [1, 2];
+class Ass {}
+*/
 
 var App = React.createClass({
   render: function() {
